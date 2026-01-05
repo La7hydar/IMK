@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalVault | Trusted Tech Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                              radial-gradient(at 100% 100%, hsla(225,39%,30%,1) 0, transparent 50%);
+        }
+        @keyframes marqueeLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .animate-fast-left { display: flex; width: max-content; animation: marqueeLeft 15s linear infinite; }
+        .animate-fast-right { display: flex; width: max-content; animation: marqueeRight 15s linear infinite; }
+        .pause-on-hover:hover { animation-play-state: paused; }
+        .card-hover { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .card-hover:hover { transform: translateY(-10px); border-color: rgba(34, 211, 238, 0.5); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .animate-fast-left { display: flex; width: max-content; animation: marqueeLeft 15s linear infinite; }
+        @keyframes marqueeRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .animate-fast-right { display: flex; width: max-content; animation: marqueeRight 15s linear infinite; }
+    </style>
+</head>
+<body class="bg-mesh min-h-screen">
+    <div id="gatekeeper" class="fixed inset-0 z-[100] bg-slate-950 flex items-center justify-center p-6 transition-all duration-700">
+        <div class="max-w-md text-center">
+            <div class="inline-block p-4 rounded-3xl bg-cyan-500/10 mb-6 border border-cyan-500/20"><span class="text-4xl">🔐</span></div>
+            <h1 class="text-5xl font-black tracking-tighter mb-4">DIGITAL<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">VAULT</span></h1>
+            <p class="text-slate-400 mb-8 leading-relaxed">Pusat Jasa IT, Desain, & Lisensi Resmi UNIDA Gontor.</p>
+            <div class="flex flex-col gap-3">
+                <button onclick="openAuthModal('login')" class="bg-cyan-500 text-slate-900 font-bold py-4 rounded-2xl hover:bg-white transition">MASUK SEKARANG</button>
+                <button onclick="openAuthModal('signup')" class="text-slate-500 hover:text-white text-sm font-bold py-2 transition">Buat akun baru</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainContent" class="hidden opacity-0 transition-opacity duration-1000">
+        <nav class="w-full glass sticky top-0 z-50">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <h1 class="text-xl font-bold tracking-tighter">DIGITAL<span class="text-cyan-400">VAULT</span></h1>
+                <div id="authArea" class="flex items-center gap-4"></div>
+            </div>
+        </nav>
+
+        <div class="container mx-auto px-6 py-20 text-center">
+            <h2 class="text-6xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tighter">Solusi Digital <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Masa Depan.</span></h2>
+            <div class="flex justify-center gap-4">
+                <a href="shop.html" class="bg-white text-slate-900 px-8 py-4 rounded-2xl font-bold hover:bg-cyan-400 transition">Mulai Belanja</a>
+                <a href="about.html" class="glass px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition">Tentang Kami</a>
+            </div>
+        </div>
+
+        <div class="py-10 bg-white/5 border-y border-white/5 overflow-hidden mb-20 space-y-8">
+            <div class="animate-fast-left pause-on-hover">
+                <div class="flex">
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Web Landing Page</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Branding Pack</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Win 11 Pro</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Mobile Dev</p></div>
+                </div>
+                <div class="flex">
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Web Landing Page</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Branding Pack</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Win 11 Pro</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Mobile Dev</p></div>
+                </div>
+            </div>
+            <div class="animate-fast-right pause-on-hover">
+                <div class="flex">
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Custom API</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">UI/UX Audit</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Office 365</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Cyber Security</p></div>
+                </div>
+                <div class="flex">
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Custom API</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">UI/UX Audit</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Office 365</p></div>
+                    <div class="glass mx-3 w-60 p-4 rounded-3xl border-white/10"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300" class="rounded-2xl h-28 w-full object-cover mb-2"><p class="font-bold text-xs uppercase text-center">Cyber Security</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 mb-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="shop.html" class="glass p-10 rounded-[40px] text-center card-hover group border-blue-500/20">
+                <span class="text-6xl block mb-6 group-hover:scale-110 transition">💻</span>
+                <h3 class="font-bold text-2xl mb-2">Jasa IT</h3>
+                <p class="text-slate-500 text-sm">Web & App Development</p>
+            </a>
+            <a href="shop.html" class="glass p-10 rounded-[40px] text-center card-hover group border-pink-500/20">
+                <span class="text-6xl block mb-6 group-hover:scale-110 transition">🎨</span>
+                <h3 class="font-bold text-2xl mb-2">Desain</h3>
+                <p class="text-slate-500 text-sm">UI/UX & Branding</p>
+            </a>
+            <a href="shop.html" class="glass p-10 rounded-[40px] text-center card-hover group border-green-500/20">
+                <span class="text-6xl block mb-6 group-hover:scale-110 transition">🔑</span>
+                <h3 class="font-bold text-2xl mb-2">Lisensi</h3>
+                <p class="text-slate-500 text-sm">Software Original</p>
+            </a>
+        </div>
+
+        <footer class="glass border-t border-white/10 pt-16 pb-8">
+            <div class="container mx-auto px-6 text-center md:text-left">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                    <div class="col-span-1">
+                        <h3 class="text-xl font-bold tracking-tighter mb-4">DIGITAL<span class="text-cyan-400">VAULT</span></h3>
+                        <p class="text-xs text-slate-400">Developed by UNIDA Gontor IT Team.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold mb-4 uppercase text-white/50">Navigasi</h4>
+                        <ul class="text-xs text-slate-400 space-y-2">
+                            <li><a href="shop.html" class="hover:text-cyan-400">Store</a></li>
+                            <li><a href="faq.html" class="hover:text-cyan-400">FAQ</a></li>
+                            <li><a href="about.html" class="hover:text-cyan-400">Tentang Kami</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold mb-4 uppercase text-white/50">Kontak</h4>
+                        <p class="text-xs text-slate-400">support@digitalvault.id<br>+62 812-3456-7890</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold mb-4 uppercase text-white/50">Legalitas</h4>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded text-[10px]">ISO 27001 Certified</span>
+                    </div>
+                </div>
+                <p class="text-[10px] text-slate-500 text-center uppercase">&copy; 2024 DigitalVault Team - UNIDA Gontor.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div id="modalAuth" class="fixed inset-0 z-[110] hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-white/10 w-full max-w-sm rounded-[40px] p-10">
+            <h3 id="authTitle" class="text-3xl font-bold text-white text-center mb-8">Login</h3>
+            <div class="space-y-4">
+                <input type="text" id="authUser" placeholder="Username" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white outline-none focus:border-cyan-500">
+                <input type="password" id="authPass" placeholder="Password" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white outline-none focus:border-cyan-500">
+                <button onclick="handleAuth()" class="w-full bg-cyan-500 text-slate-900 font-bold py-4 rounded-2xl hover:bg-white transition">KONFIRMASI</button>
+                <button onclick="closeAuthModal()" class="w-full text-slate-500 text-xs mt-4">BATALKAN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let authMode = 'login';
+        function openAuthModal(mode) { 
+            authMode = mode; 
+            document.getElementById('authTitle').innerText = mode === 'login' ? 'Selamat Datang' : 'Buat Akun';
+            document.getElementById('modalAuth').classList.remove('hidden'); 
+        }
+        function closeAuthModal() { document.getElementById('modalAuth').classList.add('hidden'); }
+        function handleAuth() {
+            const user = document.getElementById('authUser').value;
+            const pass = document.getElementById('authPass').value;
+            if(!user || !pass) return alert("Isi data!");
+            if(authMode === 'signup') {
+                localStorage.setItem('userDB', JSON.stringify({ user, pass }));
+                alert("Pendaftaran Berhasil!"); openAuthModal('login');
+            } else {
+                const db = JSON.parse(localStorage.getItem('userDB'));
+                if(db && db.user === user && db.pass === pass) {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('currentUser', user);
+                    checkLoginStatus();
+                } else { alert("Data salah!"); }
+            }
+        }
+        function checkLoginStatus() {
+            if(localStorage.getItem('isLoggedIn') === 'true') {
+                document.getElementById('gatekeeper').classList.add('hidden');
+                document.getElementById('mainContent').classList.remove('hidden');
+                setTimeout(() => document.getElementById('mainContent').classList.add('opacity-100'), 50);
+                const user = localStorage.getItem('currentUser').toUpperCase();
+                document.getElementById('authArea').innerHTML = `<span class='text-xs font-bold text-cyan-400'>HI, ${user}</span> <button onclick="logout()" class="text-red-500 text-[10px] px-3 py-1 rounded-full border border-red-500/20 font-bold">LOGOUT</button>`;
+                closeAuthModal();
+            }
+        }
+        function logout() { localStorage.removeItem('isLoggedIn'); location.reload(); }
+        window.onload = checkLoginStatus;
+    </script>
+</body>
+</html>
